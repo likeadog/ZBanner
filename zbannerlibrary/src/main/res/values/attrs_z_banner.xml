@@ -1,0 +1,18 @@
+<resources>
+    <declare-styleable name="ZBanner">
+        <attr name="pageGap" format="dimension" />
+        <attr name="widthFactor" format="float" />
+        <attr name="offscreenPageLimit" format="integer" />
+        <attr name="indicatorSelectIcon" format="reference" />
+        <attr name="indicatorUnSelectIcon" format="reference" />
+        <attr name="indicatorGravity">
+            <enum name="bottomLeft" value="0" />
+            <enum name="bottomCenter" value="1" />
+            <enum name="bottomRight" value="2" />
+        </attr>
+        <attr name="indicatorIconSize" format="dimension" />
+        <attr name="showIndicator" format="boolean" />
+        <attr name="indicatorMargin" format="dimension" />
+        <attr name="indicatorGap" format="dimension" />
+    </declare-styleable>
+</resources>
