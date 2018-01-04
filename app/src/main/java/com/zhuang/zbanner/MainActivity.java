@@ -4,10 +4,12 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
+import android.util.Log;
+import android.widget.ListView;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.zhuang.zbannerlibrary.PageTransformer.DrawerTransformer;
+import com.zhuang.zbannerlibrary.PageTransformer.Flip3DTransformer;
 import com.zhuang.zbannerlibrary.ZBanner;
 import com.zhuang.zbannerlibrary.ZBannerAdapter;
 
@@ -39,25 +41,19 @@ public class MainActivity extends AppCompatActivity {
 
         banner1 = findViewById(R.id.zBanner1);
         banner1.setAdapter(new MyBannerAdapter(getSupportFragmentManager()));
-        banner1.setPageTransformer(new DrawerTransformer());
-        banner1.setDisplayDuration(2000);
-        banner1.setAnimalDuration(1000);
+        banner1.setPageTransformer(new Flip3DTransformer());
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        banner1.star();
+        banner1.star(2000,1000);
     }
 
     @Override
     protected void onPause() {
         super.onPause();
         banner1.stop();
-    }
-
-    public void setPosition(View view){
-        banner1.star();
     }
 
     private class MyBannerAdapter extends ZBannerAdapter {
@@ -68,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public Fragment getItem(int position) {
-            return BlankFragment.newInstance(mList.get(position),position);
+            return BannerFragment.newInstance(mList.get(position),position);
         }
 
         @Override

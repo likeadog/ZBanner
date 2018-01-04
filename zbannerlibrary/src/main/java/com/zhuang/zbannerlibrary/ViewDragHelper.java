@@ -601,7 +601,7 @@ class ViewDragHelper {
             setDragState(STATE_IDLE);
             return false;
         }
-        final int duration = autoPlaying ? mDuration : computeSettleDuration(mCapturedView, dx, dy, xvel, yvel);
+        final int duration = autoPlaying && mDuration > 0 ? mDuration : computeSettleDuration(mCapturedView, dx, dy, xvel, yvel);
         mScroller.startScroll(startLeft, startTop, dx, dy, duration);
 
         setDragState(STATE_SETTLING);

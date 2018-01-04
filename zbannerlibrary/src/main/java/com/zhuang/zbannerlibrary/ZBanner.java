@@ -149,20 +149,19 @@ public class ZBanner extends FrameLayout {
         zBannerRaw.setPageTransformer(true, pageTransformer);
     }
 
-    public void star() {
+    /**
+     *
+     * @param displayDuration 页面展示的时间 ms
+     * @param animalDuration  页面滑动的时间 ms
+     */
+    public void star(int displayDuration,int animalDuration) {
+        zBannerRaw.setDisplayDuration(displayDuration);
+        zBannerRaw.setAnimalDuration(animalDuration);
         zBannerRaw.star();
     }
 
     public void stop() {
         zBannerRaw.stop();
-    }
-
-    public void setDisplayDuration(int duration) {
-        zBannerRaw.setDisplayDuration(duration);
-    }
-
-    public void setAnimalDuration(int duration) {
-        zBannerRaw.setAnimalDuration(duration);
     }
 
     /**

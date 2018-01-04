@@ -414,6 +414,11 @@ public class ZBannerRaw extends ViewGroup {
         }
 
         @Override
+        public int getViewHorizontalDragRange(View child) {
+            return 1;
+        }
+
+        @Override
         public int clampViewPositionHorizontal(View child, int left, int dx) {
             return left;
         }
@@ -713,7 +718,7 @@ public class ZBannerRaw extends ViewGroup {
         }
     }
 
-    public void star() {
+    void star() {
         if (mTimer == null) {
             mDuration = mAnimalDuration + mDisplayDuration;
             mDragger.setAutoPlaying(true);
@@ -724,7 +729,7 @@ public class ZBannerRaw extends ViewGroup {
         }
     }
 
-    public void stop() {
+    void stop() {
         if (mTimer != null) {
             mDragger.setAutoPlaying(false);
             mTimer.cancel();
@@ -762,4 +767,5 @@ public class ZBannerRaw extends ViewGroup {
             }
         }
     }
+
 }

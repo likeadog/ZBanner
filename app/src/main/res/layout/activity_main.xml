@@ -17,11 +17,5 @@
             app:indicatorIconSize="10dp"
             app:offscreenPageLimit="1"
             app:showIndicator="true" />
-
-        <Button
-            android:text="click"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="setPosition"/>
     </LinearLayout>
 </ScrollView>
