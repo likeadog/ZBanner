@@ -35,8 +35,8 @@ public class ZBanner extends FrameLayout {
     private Drawable indicatorUnSelectIcon;//指示器未被选中时的图标
     private int indicatorGravity = INDICATOR_GRAVITY_BOTTOM_CENTER;//指示器的位置
     private int indicatorIconSize = 12;//指示器的图标大小
-    private boolean showIndicator;//是否显示指示器
-    private int indicatorMargin = 10;
+    private boolean showIndicator = true;//是否显示指示器
+    private int indicatorMargin = 5;//dp
     private int mIndicatorGap = 5;//指示器图标之间的间隔
     private static final AtomicInteger sNextGeneratedId = new AtomicInteger(1);
 

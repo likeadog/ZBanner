@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhuang.zbannerlibrary.ZBanner xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/zBanner"
+    android:layout_width="match_parent"
+    app:widthFactor=".7"
+    app:pageGap="8dp"
+    app:offscreenPageLimit="2"
+    android:layout_height="160dp" />
+

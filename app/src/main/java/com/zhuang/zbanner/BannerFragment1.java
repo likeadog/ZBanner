@@ -8,16 +8,16 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-public class BannerFragment extends Fragment {
+public class BannerFragment1 extends Fragment {
 
     private static final String RES_ID = "resId";
     private static final String POSITION = "position";
 
-    public BannerFragment() {
+    public BannerFragment1() {
     }
 
-    public static BannerFragment newInstance(int resId, int position) {
-        BannerFragment fragment = new BannerFragment();
+    public static BannerFragment1 newInstance(int resId, int position) {
+        BannerFragment1 fragment = new BannerFragment1();
         Bundle args = new Bundle();
         args.putInt(RES_ID, resId);
         args.putInt(POSITION, position);
@@ -27,7 +27,7 @@ public class BannerFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_banner, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_banner1, container, false);
         ImageView imageView = rootView.findViewById(R.id.imageView);
         int resId = getArguments().getInt(RES_ID);
         final int position = getArguments().getInt(POSITION);
