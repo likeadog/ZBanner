@@ -44,7 +44,7 @@ public class BannerActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        zBanner.star(2000, 1000);
+        zBanner.star(1000, 1000);
     }
 
     @Override
