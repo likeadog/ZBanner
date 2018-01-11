@@ -5,6 +5,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.zhuang.zbannerlibrary.PageTransformer.Flip3DTransformer;
 import com.zhuang.zbannerlibrary.ZBanner;
 import com.zhuang.zbannerlibrary.ZBannerAdapter;
 
@@ -37,7 +38,7 @@ public class BannerActivity extends AppCompatActivity {
         }
         ZBanner.ZBannerPageTransformer transformer = list.get(position).transformer;
         if (transformer != null) {
-            zBanner.setPageTransformer(transformer);
+            zBanner.setPageTransformer(new Flip3DTransformer());
         }
     }
 
