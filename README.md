@@ -177,7 +177,7 @@ public class AccordionTransformer implements ZBanner.ZBannerPageTransformer {
         rootView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(), "click:position=" + position, Toast.LENGTH_SHORT).show();
+                
             }
         });
         return rootView;
