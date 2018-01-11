@@ -1,4 +1,5 @@
 # ZBanner
+ZBanner是一个真正的轮播控件，并非ViewPager的简单改造。
 
 ## 预览效果
 ![](https://github.com/likeadog/Zbanner/blob/master/screenshot/1.gif)
