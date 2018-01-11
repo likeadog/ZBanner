@@ -120,7 +120,7 @@ public class ExampleActivity extends AppCompatActivity {
 zBanner.setPageTransformer(new Flip3DTransformer());
 ```
 ZBanner提供了多种转换动画效果：AccordionTransformer、AccordionTransformer1、DepthPageTransformer、DrawerTransformer、Flip3DTransformer、FlipHorizontalTransformer、RotateDownTransformer、StackTransformer、ZoomOutTransformer
-ZBanner允许用户自定义Transformer，只需实现接口ZBannerPageTransformer，例如AccordionTransformer的实现如下：
+ ZBanner允许用户自定义Transformer，只需实现接口ZBannerPageTransformer，例如AccordionTransformer的实现如下：
 ```
 public class AccordionTransformer implements ZBanner.ZBannerPageTransformer {
 
@@ -147,7 +147,7 @@ public class AccordionTransformer implements ZBanner.ZBannerPageTransformer {
     }
 }
 ```
-用一张图来说明
+用一张图来说明transformPage的position参数
 
 ![](https://github.com/likeadog/Zbanner/blob/master/screenshot/page_transformer1.png)
 
