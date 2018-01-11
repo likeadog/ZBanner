@@ -21,6 +21,8 @@ public class ZBanner extends FrameLayout {
     private final static int INDICATOR_GRAVITY_BOTTOM_LEFT = 0;
     private final static int INDICATOR_GRAVITY_BOTTOM_CENTER = 1;
     private final static int INDICATOR_GRAVITY_BOTTOM_RIGHT = 2;
+    private static final int DURATION_ANIMAL = 1000; // ms
+    private static final int DURATION_DISPLAY = 2000; // ms
 
     private ZBannerRaw zBannerRaw;
     private Indicator indicator;
@@ -150,13 +152,18 @@ public class ZBanner extends FrameLayout {
     }
 
     /**
-     *
      * @param displayDuration 页面展示的时间 ms
      * @param animalDuration  页面滑动的时间 ms
      */
-    public void star(int displayDuration,int animalDuration) {
+    public void star(int displayDuration, int animalDuration) {
         zBannerRaw.setDisplayDuration(displayDuration);
         zBannerRaw.setAnimalDuration(animalDuration);
+        zBannerRaw.star();
+    }
+
+    public void star() {
+        zBannerRaw.setDisplayDuration(DURATION_DISPLAY);
+        zBannerRaw.setAnimalDuration(DURATION_ANIMAL);
         zBannerRaw.star();
     }
 
