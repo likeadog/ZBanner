@@ -167,6 +167,22 @@ public class AccordionTransformer implements ZBanner.ZBannerPageTransformer {
 |indicatorMargin|指示器的margin|zbanner:indicatorMargin="10dp"|
 |indicatorGap|指示器中各个图标的间隔|zbanner:indicatorGap="3dp"|
 
+## 点击事件
+
+从上面的介绍可以看到ZBanner的每个页面其实就是一个Fragment，如需为页面设置点击事件，只需在对应的Fragment中设置点击事件即可
+```
+ @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.fragment_banner1, container, false);
+        rootView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(), "click:position=" + position, Toast.LENGTH_SHORT).show();
+            }
+        });
+        return rootView;
+    }
+```
 
 ## License
 ```
