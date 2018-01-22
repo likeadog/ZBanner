@@ -170,7 +170,7 @@ public class AccordionTransformer implements ZBanner.ZBannerPageTransformer {
 |indicatorGap|指示器中各个图标的间隔|zbanner:indicatorGap="3dp"|
 
 ## 自定义布局
-如果你对ZBanner默认的布局不满意，例如indicator的位置不满意，ZBanner的样式不满意，可以自定义布局。例如下面的效果
+如果你对ZBanner默认的布局不满意，例如indicator的位置不满意，ZBanner的样式不满意，可以自定义布局。例如下面的效果  
 ![](https://github.com/likeadog/Zbanner/blob/master/screenshot/12.gif)  
 该界面把Zbanner与indicator分开，首先需要设置默认的indicator为false，让ZBanner不显示自身的indicator,再把你自己的indicator按你想要的位置来布局到界面中。
 ```
