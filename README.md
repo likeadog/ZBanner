@@ -16,7 +16,7 @@ ZBanner是一个真正的轮播控件，并非ViewPager的简单改造。ZBanner
 ![](https://github.com/likeadog/Zbanner/blob/master/screenshot/12.gif)
 
 ## 例子下载
-![](https://github.com/likeadog/Zbanner/blob/master/screenshot/13.gif)
+![](https://github.com/likeadog/Zbanner/blob/master/screenshot/13.png)
 
 ## gradle引入
 ```
