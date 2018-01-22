@@ -1,5 +1,5 @@
 # ZBanner
-ZBanner是一个真正的轮播控件，并非ViewPager的简单改造。
+ZBanner是一个真正的轮播控件，并非ViewPager的简单改造。ZBanner使用Adapter+Fragment的方式来展示页面，每一页就是一个Fragment,因此你可以随意设计自己的Fragment,例如形状、加载图片的方式等等。同时提供了转换动画、自定义布局等等让你实现各种炫丽效果。
 
 ## 预览效果
 ![](https://github.com/likeadog/Zbanner/blob/master/screenshot/1.gif)
@@ -13,6 +13,7 @@ ZBanner是一个真正的轮播控件，并非ViewPager的简单改造。
 ![](https://github.com/likeadog/Zbanner/blob/master/screenshot/9.gif)
 ![](https://github.com/likeadog/Zbanner/blob/master/screenshot/10.gif)
 ![](https://github.com/likeadog/Zbanner/blob/master/screenshot/11.gif)
+![](https://github.com/likeadog/Zbanner/blob/master/screenshot/12.gif)
 
 ## gradle引入
 ```
@@ -167,6 +168,63 @@ public class AccordionTransformer implements ZBanner.ZBannerPageTransformer {
 | showIndicator    |是否显示指示器|zbanner:showIndicator="false"|
 |indicatorMargin|指示器的margin|zbanner:indicatorMargin="10dp"|
 |indicatorGap|指示器中各个图标的间隔|zbanner:indicatorGap="3dp"|
+
+## 自定义布局
+如果你对ZBanner默认的布局不满意，例如indicator的位置不满意，ZBanner的样式不满意，可以自定义布局。例如下面的效果  
+![](https://github.com/likeadog/Zbanner/blob/master/screenshot/12.gif)  
+该界面把Zbanner与indicator分开，首先需要设置默认的indicator为false，让ZBanner不显示自身的indicator,再把你自己的indicator按你想要的位置来布局到界面中。
+```
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="200dp">
+
+    <com.zhuang.zbannerlibrary.ZBanner
+        android:id="@+id/zBanner"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:indicatorIconSize="8dp"
+        app:indicatorMargin="2dp"
+        app:showIndicator="false"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:offscreenPageLimit="2" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#66000000"
+        android:padding="10dp"
+        android:textColor="#ffffff"
+        app:layout_constraintBottom_toBottomOf="@+id/zBanner" />
+
+    <com.zhuang.zbannerlibrary.Indicator
+        android:layout_marginRight="10dp"
+        android:id="@+id/indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/title"
+        app:layout_constraintRight_toRightOf="@id/title"
+        app:layout_constraintTop_toTopOf="@+id/title" />
+
+</android.support.constraint.ConstraintLayout>
+```
+然后在java代码中设置
+```
+Indicator indicator = findViewById(R.id.indicator);
+zBanner.setIndicator(indicator);
+final TextView title = findViewById(R.id.title);
+zBanner.setOnPageChangeLister(new ZBanner.OnPageChangeLister() {
+    @Override
+    public void change(int position) {
+        title.setText(position + "" );
+    }
+});
+```
+更多详细请看项目中的例子源码
 
 ## 点击事件
 
