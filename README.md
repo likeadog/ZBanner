@@ -224,7 +224,7 @@ zBanner.setOnPageChangeLister(new ZBanner.OnPageChangeLister() {
     }
 });
 ```
-更多详细请看项目中的例子
+更多详细请看项目中的例子源码
 
 ## 点击事件
 
