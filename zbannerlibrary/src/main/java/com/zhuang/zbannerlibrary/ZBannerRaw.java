@@ -23,7 +23,7 @@ import java.util.TimerTask;
  * Created by zhuang on 2017/11/23.
  */
 
-public class ZBannerRaw extends ViewGroup {
+class ZBannerRaw extends ViewGroup {
     private static final int TYPE_ONE_PAGE = 1;//只有一页的情况
     private static final int TYPE_TWO_PAGE = 2;//只有两页的情况
     private static final int TYPE_OTHER_PAGE = 3;//有三页以上的情况
@@ -66,6 +66,8 @@ public class ZBannerRaw extends ViewGroup {
     private int mDisplayDuration = 2000;//ms
     private int mDuration = mAnimalDuration + mDisplayDuration;//ms
 
+    private ZBanner.OnPageChangeLister mOnPageChangeLister;
+
     public ZBannerRaw(Context context, Builder builder) {
         super(context);
         mPageGap = builder.pageGap;
@@ -96,6 +98,7 @@ public class ZBannerRaw extends ViewGroup {
 
     public void setIndicator(Indicator mIndicator) {
         this.mIndicator = mIndicator;
+        this.mIndicator.setCount(N);
     }
 
     public void setAdapter(ZBannerAdapter adapter) {
@@ -158,6 +161,10 @@ public class ZBannerRaw extends ViewGroup {
                     popuateItem();
                 default:
                     break;
+            }
+
+            if (mOnPageChangeLister != null) {
+                mOnPageChangeLister.change(mCurPosition);
             }
         }
 
@@ -521,6 +528,9 @@ public class ZBannerRaw extends ViewGroup {
             if (mIndicator != null) {
                 mIndicator.setSelectPosition(mCurPosition);
             }
+            if (mOnPageChangeLister != null) {
+                mOnPageChangeLister.change(mCurPosition);
+            }
             ViewCompat.postInvalidateOnAnimation(ZBannerRaw.this);
         }
 
@@ -552,6 +562,9 @@ public class ZBannerRaw extends ViewGroup {
         ViewCompat.postInvalidateOnAnimation(ZBannerRaw.this);
         if (mIndicator != null) {
             mIndicator.setSelectPosition(mCurPosition);
+        }
+        if (mOnPageChangeLister != null) {
+            mOnPageChangeLister.change(position);
         }
     }
 
@@ -667,9 +680,9 @@ public class ZBannerRaw extends ViewGroup {
     }
 
     public static class Builder {
-        int pageGap;//页面之间的间隔
-        float widthFactor;//页面宽度倍数
-        int offscreenPageLimit;//缓存页面
+        int pageGap;
+        float widthFactor;
+        int offscreenPageLimit;
 
         public ZBannerRaw build(Context context) {
             ZBannerRaw zBannerRaw = new ZBannerRaw(context, this);
@@ -766,6 +779,10 @@ public class ZBannerRaw extends ViewGroup {
                 handler.sendEmptyMessage(0);
             }
         }
+    }
+
+    public void setOnPageChangeLister(ZBanner.OnPageChangeLister mOnPageChangeLister) {
+        this.mOnPageChangeLister = mOnPageChangeLister;
     }
 
 }

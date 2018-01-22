@@ -26,18 +26,19 @@ public class ItemsSources {
 
     public static List<ExampleItem> getItems() {
         List<ExampleItem> list = new ArrayList();
-        list.add(new ExampleItem("Classic",null,R.layout.activity_banner_classic));
-        list.add(new ExampleItem("WidthFactor",null,R.layout.activity_banner_widthfactor));
-        list.add(new ExampleItem("Indicator",null,R.layout.activity_banner_indicator));
-        list.add(new ExampleItem("AccordionTransformer",new AccordionTransformer()));
-        list.add(new ExampleItem("AccordionTransformer1",new AccordionTransformer1()));
-        list.add(new ExampleItem("DepthPageTransformer",new DepthPageTransformer()));
-        list.add(new ExampleItem("DrawerTransformer",new DrawerTransformer()));
-        list.add(new ExampleItem("Flip3DTransformer",new Flip3DTransformer()));
-        list.add(new ExampleItem("FlipHorizontalTransformer",new FlipHorizontalTransformer()));
-        list.add(new ExampleItem("RotateDownTransformer",new RotateDownTransformer()));
-        list.add(new ExampleItem("StackTransformer",new StackTransformer()));
-        list.add(new ExampleItem("ZoomOutTransformer",new ZoomOutTransformer()));
+        list.add(new ExampleItem("Classic", null, R.layout.activity_banner_classic));
+        list.add(new ExampleItem("WidthFactor", null, R.layout.activity_banner_widthfactor));
+        list.add(new ExampleItem("Indicator", null, R.layout.activity_banner_indicator));
+        list.add(new ExampleItem("AccordionTransformer", new AccordionTransformer()));
+        list.add(new ExampleItem("AccordionTransformer1", new AccordionTransformer1()));
+        list.add(new ExampleItem("DepthPageTransformer", new DepthPageTransformer()));
+        list.add(new ExampleItem("DrawerTransformer", new DrawerTransformer()));
+        list.add(new ExampleItem("Flip3DTransformer", new Flip3DTransformer()));
+        list.add(new ExampleItem("FlipHorizontalTransformer", new FlipHorizontalTransformer()));
+        list.add(new ExampleItem("RotateDownTransformer", new RotateDownTransformer()));
+        list.add(new ExampleItem("StackTransformer", new StackTransformer()));
+        list.add(new ExampleItem("ZoomOutTransformer", new ZoomOutTransformer()));
+        list.add(new ExampleItem("Customer", null, R.layout.activity_banner_customer));
         return list;
     }
 

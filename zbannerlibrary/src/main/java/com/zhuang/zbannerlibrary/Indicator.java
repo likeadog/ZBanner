@@ -1,10 +1,12 @@
 package com.zhuang.zbannerlibrary;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 
 import java.util.ArrayList;
@@ -31,31 +33,23 @@ public class Indicator extends View {
         mIndicatorUnSelectIcon = builder.indicatorUnSelectIcon;
         mIndicatorIconSize = builder.indicatorIconSize;
         mIndicatorGap = builder.mIndicatorGap;
-        initView();
     }
 
     public Indicator(Context context) {
         super(context);
-        initView();
     }
 
     public Indicator(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-        initView();
     }
 
     public Indicator(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        initView();
-    }
-
-    void initView() {
-
     }
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        int width = mCount * mIndicatorIconSize + (mCount-1)*mIndicatorGap;
+        int width = mCount * mIndicatorIconSize + (mCount - 1) * mIndicatorGap;
         int height = mIndicatorIconSize;
         setMeasuredDimension(width, height);
     }
@@ -93,6 +87,7 @@ public class Indicator extends View {
 
     public void setSelectPosition(int position) {
         if (mOldPosition == position) return;
+        if (mItems.size() == 0) return;
         mItems.get(position).isSelect = true;
         mItems.get(mOldPosition).isSelect = false;
         mOldPosition = position;
@@ -101,6 +96,14 @@ public class Indicator extends View {
 
     private class ItemInfo {
         boolean isSelect;
+    }
+
+    public void setBuilder(Builder builder) {
+        mIndicatorSelectIcon = builder.indicatorSelectIcon;
+        mIndicatorUnSelectIcon = builder.indicatorUnSelectIcon;
+        mIndicatorIconSize = builder.indicatorIconSize;
+        mIndicatorGap = builder.mIndicatorGap;
+        invalidate();
     }
 
     public static class Builder {

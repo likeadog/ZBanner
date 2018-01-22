@@ -1,10 +1,12 @@
 package com.zhuang.zbanner;
 
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.widget.TextView;
 
+import com.zhuang.zbannerlibrary.Indicator;
 import com.zhuang.zbannerlibrary.PageTransformer.Flip3DTransformer;
 import com.zhuang.zbannerlibrary.ZBanner;
 import com.zhuang.zbannerlibrary.ZBannerAdapter;
@@ -19,6 +21,13 @@ public class BannerActivity extends AppCompatActivity {
             R.drawable.kobe,
             R.drawable.stephen,
             R.drawable.android
+    };
+    String[] name = {
+            "jackson",
+            "jordan",
+            "kobe",
+            "stephen",
+            "android",
     };
     ZBanner zBanner;
 
@@ -39,6 +48,21 @@ public class BannerActivity extends AppCompatActivity {
         ZBanner.ZBannerPageTransformer transformer = list.get(position).transformer;
         if (transformer != null) {
             zBanner.setPageTransformer(new Flip3DTransformer());
+        }
+
+        if (findViewById(R.id.indicator) != null) {
+            Indicator indicator = findViewById(R.id.indicator);
+            zBanner.setIndicator(indicator);
+        }
+
+        if (findViewById(R.id.title) != null) {
+            final TextView title = findViewById(R.id.title);
+            zBanner.setOnPageChangeLister(new ZBanner.OnPageChangeLister() {
+                @Override
+                public void change(int position) {
+                    title.setText(position + ".  " + name[position]);
+                }
+            });
         }
     }
 
@@ -79,7 +103,7 @@ public class BannerActivity extends AppCompatActivity {
 
         @Override
         public Fragment getItem(int position) {
-            return BannerFragment1.newInstance(imgResId[position], position);
+            return BannerFragmentRound.newInstance(imgResId[position], position);
         }
 
         @Override

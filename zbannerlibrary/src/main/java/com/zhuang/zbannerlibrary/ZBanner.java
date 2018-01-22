@@ -26,6 +26,7 @@ public class ZBanner extends FrameLayout {
 
     private ZBannerRaw zBannerRaw;
     private Indicator indicator;
+    private Indicator.Builder indicatorBuilder;
 
     /**
      * xml中可配置的变量
@@ -38,9 +39,11 @@ public class ZBanner extends FrameLayout {
     private int indicatorGravity = INDICATOR_GRAVITY_BOTTOM_CENTER;//指示器的位置
     private int indicatorIconSize = 12;//指示器的图标大小
     private boolean showIndicator = true;//是否显示指示器
+    private boolean showIndicatorOuter;//是否把指示器显示到外部指示器中
     private int indicatorMargin = 5;//dp
     private int mIndicatorGap = 5;//指示器图标之间的间隔
     private static final AtomicInteger sNextGeneratedId = new AtomicInteger(1);
+    private OnPageChangeLister mOnPageChangeLister;
 
     public ZBanner(@NonNull Context context) {
         super(context);
@@ -68,6 +71,7 @@ public class ZBanner extends FrameLayout {
         indicatorGravity = a.getInt(R.styleable.ZBanner_indicatorGravity, indicatorGravity);
         indicatorIconSize = a.getDimensionPixelSize(R.styleable.ZBanner_indicatorIconSize, dpToPx(indicatorIconSize));
         showIndicator = a.getBoolean(R.styleable.ZBanner_showIndicator, showIndicator);
+        showIndicatorOuter = a.getBoolean(R.styleable.ZBanner_showIndicatorOuter, showIndicatorOuter);
         indicatorMargin = a.getDimensionPixelSize(R.styleable.ZBanner_indicatorMargin, dpToPx(indicatorMargin));
         mIndicatorGap = a.getDimensionPixelSize(R.styleable.ZBanner_indicatorGap, dpToPx(mIndicatorGap));
         a.recycle();
@@ -90,13 +94,15 @@ public class ZBanner extends FrameLayout {
     }
 
     void initIndicator() {
-        if (!showIndicator) return;
-        indicator = new Indicator.Builder()
+        indicatorBuilder = new Indicator.Builder()
                 .indicatorSelectIcon(indicatorSelectIcon)
                 .indicatorUnSelectIcon(indicatorUnSelectIcon)
                 .indicatorIconSize(indicatorIconSize)
-                .indicatorGap(mIndicatorGap)
-                .build(getContext());
+                .indicatorGap(mIndicatorGap);
+        indicator = indicatorBuilder.build(getContext());
+
+        if (showIndicatorOuter) return;
+        if (!showIndicator) return;
 
         LayoutParams params = generateDefaultLayoutParams();
         switch (indicatorGravity) {
@@ -114,6 +120,11 @@ public class ZBanner extends FrameLayout {
         indicator.setLayoutParams(params);
         addView(indicator);
         zBannerRaw.setIndicator(indicator);
+    }
+
+    public void setIndicator(Indicator indicator) {
+        zBannerRaw.setIndicator(indicator);
+        indicator.setBuilder(indicatorBuilder);
     }
 
     void initBanner() {
@@ -171,6 +182,10 @@ public class ZBanner extends FrameLayout {
         zBannerRaw.stop();
     }
 
+    public void setOnPageChangeLister(OnPageChangeLister mOnPageChangeLister) {
+        zBannerRaw.setOnPageChangeLister(mOnPageChangeLister);
+    }
+
     /**
      * 提供一个页面切换时的接口，可以自定义转换动画
      */
@@ -183,6 +198,10 @@ public class ZBanner extends FrameLayout {
          *                 例如左移的话，当前页的position会从0减少到-1，切换完成后就变成左侧一页了。
          */
         void transformPage(View page, float position);
+    }
+
+    public interface OnPageChangeLister {
+        void change(int position);
     }
 
 }

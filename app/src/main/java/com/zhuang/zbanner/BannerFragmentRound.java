@@ -8,16 +8,16 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-public class BannerFragment1 extends Fragment {
+public class BannerFragmentRound extends Fragment {
 
     private static final String RES_ID = "resId";
     private static final String POSITION = "position";
 
-    public BannerFragment1() {
+    public BannerFragmentRound() {
     }
 
-    public static BannerFragment1 newInstance(int resId, int position) {
-        BannerFragment1 fragment = new BannerFragment1();
+    public static BannerFragmentRound newInstance(int resId, int position) {
+        BannerFragmentRound fragment = new BannerFragmentRound();
         Bundle args = new Bundle();
         args.putInt(RES_ID, resId);
         args.putInt(POSITION, position);
