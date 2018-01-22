@@ -17,7 +17,7 @@ ZBanner是一个真正的轮播控件，并非ViewPager的简单改造。ZBanner
 
 ## gradle引入
 ```
- compile 'com.zhuang.zbanner:zbanner:1.1'
+ compile 'com.zhuang.zbanner:zbanner:1.2'
   ```
 ## 简单使用
 
