@@ -39,7 +39,6 @@ public class ZBanner extends FrameLayout {
     private int indicatorGravity = INDICATOR_GRAVITY_BOTTOM_CENTER;//指示器的位置
     private int indicatorIconSize = 12;//指示器的图标大小
     private boolean showIndicator = true;//是否显示指示器
-    private boolean showIndicatorOuter;//是否把指示器显示到外部指示器中
     private int indicatorMargin = 5;//dp
     private int mIndicatorGap = 5;//指示器图标之间的间隔
     private static final AtomicInteger sNextGeneratedId = new AtomicInteger(1);
@@ -71,7 +70,6 @@ public class ZBanner extends FrameLayout {
         indicatorGravity = a.getInt(R.styleable.ZBanner_indicatorGravity, indicatorGravity);
         indicatorIconSize = a.getDimensionPixelSize(R.styleable.ZBanner_indicatorIconSize, dpToPx(indicatorIconSize));
         showIndicator = a.getBoolean(R.styleable.ZBanner_showIndicator, showIndicator);
-        showIndicatorOuter = a.getBoolean(R.styleable.ZBanner_showIndicatorOuter, showIndicatorOuter);
         indicatorMargin = a.getDimensionPixelSize(R.styleable.ZBanner_indicatorMargin, dpToPx(indicatorMargin));
         mIndicatorGap = a.getDimensionPixelSize(R.styleable.ZBanner_indicatorGap, dpToPx(mIndicatorGap));
         a.recycle();
@@ -101,7 +99,6 @@ public class ZBanner extends FrameLayout {
                 .indicatorGap(mIndicatorGap);
         indicator = indicatorBuilder.build(getContext());
 
-        if (showIndicatorOuter) return;
         if (!showIndicator) return;
 
         LayoutParams params = generateDefaultLayoutParams();

@@ -12,7 +12,6 @@
         </attr>
         <attr name="indicatorIconSize" format="dimension" />
         <attr name="showIndicator" format="boolean" />
-        <attr name="showIndicatorOuter" format="boolean" />
         <attr name="indicatorMargin" format="dimension" />
         <attr name="indicatorGap" format="dimension" />
     </declare-styleable>
