@@ -47,7 +47,7 @@ public class BannerActivity extends AppCompatActivity {
         }
         ZBanner.ZBannerPageTransformer transformer = list.get(position).transformer;
         if (transformer != null) {
-            zBanner.setPageTransformer(new Flip3DTransformer());
+            zBanner.setPageTransformer(transformer);
         }
 
         if (findViewById(R.id.indicator) != null) {
