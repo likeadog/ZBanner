@@ -68,7 +68,7 @@ class ZBannerRaw extends ViewGroup {
 
     private ZBanner.OnPageChangeLister mOnPageChangeLister;
 
-    public ZBannerRaw(Context context, Builder builder) {
+     ZBannerRaw(Context context, Builder builder) {
         super(context);
         mPageGap = builder.pageGap;
         mWidthFactor = builder.widthFactor;
@@ -76,17 +76,17 @@ class ZBannerRaw extends ViewGroup {
         initView();
     }
 
-    public ZBannerRaw(Context context) {
+     ZBannerRaw(Context context) {
         super(context);
         initView();
     }
 
-    public ZBannerRaw(Context context, AttributeSet attrs) {
+     ZBannerRaw(Context context, AttributeSet attrs) {
         super(context, attrs);
         initView();
     }
 
-    public ZBannerRaw(Context context, AttributeSet attrs, int defStyleAttr) {
+     ZBannerRaw(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         initView();
     }
@@ -554,7 +554,7 @@ class ZBannerRaw extends ViewGroup {
     }
 
     //跳转到指定页面
-    void setCurrentItem(int position) {
+    public void setCurrentItem(int position) {
         mCallback.setFirstAndLast();
         mCurPosition = position;
         View view = getViewFromPosition(position);

@@ -183,6 +183,10 @@ public class ZBanner extends FrameLayout {
         zBannerRaw.setOnPageChangeLister(mOnPageChangeLister);
     }
 
+    public void setCurrentItem(int position){
+        zBannerRaw.setCurrentItem(position);
+    }
+
     /**
      * 提供一个页面切换时的接口，可以自定义转换动画
      */
